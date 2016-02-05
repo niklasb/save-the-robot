@@ -1,0 +1,471 @@
+%%
+%% This is file `KITdefs.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITgeneral.dtx  (with options: `definitions')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2008 by Klaus Braune <klaus.braune@kit.edu>
+%%
+%% Modifications by Dennis Schieferdecker <dennis.schieferdecker@kit.edu>
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{KITdefs}
+    [2008/10/23 v0.9 Common KIT specific definitions]
+\RequirePackage{tikz}
+\DeclareOption{german}{\AtBeginDocument{\KIT@German}}
+\DeclareOption{germanb}{\AtBeginDocument{\KIT@German}}
+\DeclareOption{ngerman}{\AtBeginDocument{\KIT@German}}
+\DeclareOption{deutsch}{\AtBeginDocument{\KIT@German}}
+\DeclareOption{english}{\AtBeginDocument{\KIT@English}}
+\DeclareOption{UKenglish}{\AtBeginDocument{\KIT@English}}
+\DeclareOption{USenglish}{\AtBeginDocument{\KIT@English}}
+\DeclareOption{englisch}{\AtBeginDocument{\KIT@English}}
+\ProcessOptions
+\newcommand{\KIT@name@D}{Karlsruher Institut f\"ur Technologie (KIT)}
+\newcommand{\KIT@name@E}{Karlsruhe Institute of Technology (KIT)}
+\newcommand{\KIT@text@D}{KIT -- die Kooperation von Forschungszentrum Karlsruhe
+  GmbH und Universit\"at Karlsruhe (TH)}
+\newcommand{\KIT@text@E}{KIT -- The cooperation of Forschungszentrum Karlsruhe
+  GmbH and Universit\"at Karlsruhe (TH)}
+\newcommand{\KIT@texta@D}{KIT -- Universit\"at des Landes Baden-W\"urttemberg und \newline				% DS_CHANGE: folgende vier Zeilen dazu
+  nationales Grossforschungszentrum in der Helmholtz-Gemeinschaft}
+\newcommand{\KIT@texta@E}{KIT -- University of the State of Baden-W\"urttemberg and \newline
+  National Large-scale Research Center of the Helmholtz Association}
+\newcommand{\KIT@www}{www.kit.edu}
+\newsavebox{\KIT@titimg}
+\newlength{\KIT@titimgwd}
+\newcommand{\KIT@pgftext}[5][KITblack]{%
+  \textcolor{#1}{\fontfamily{ua1}\fontsize{#2}{#3}%
+    \fontseries{#4}\upshape#5}
+}
+\newcommand{\KITtitelbild}[2][\relax]{%
+  \ifx#1\relax
+    \sbox{\KIT@titimg}{\includegraphics[width=\KIT@titimgwd]{#2}}
+  \else
+    \sbox{\KIT@titimg}{\includegraphics[#1,width=\KIT@titimgwd]{#2}}
+  \fi}
+\newcommand{\TitleImage}[2][\relax]{%
+  \ifx#1\relax
+    \sbox{\KIT@titimg}{\includegraphics{#2}}
+  \else
+    \sbox{\KIT@titimg}{\includegraphics[#1]{#2}}
+  \fi}
+\newcommand{\KIT@institute}[1]{empty institute}															% DS_CHANGE: vier Befehle dazu für Institut/Fakultät	
+\newcommand{\KITinstitute}[1]{\renewcommand\KIT@institute{#1}}
+\newcommand{\KIT@faculty}{empty faculty}
+\newcommand{\KITfaculty}[1]{\renewcommand\KIT@faculty{#1}}
+\newcommand{\KIT@logo@D}{kit_logo_de_4c_positiv}														% DS_CHANGE: neue Logos
+\newcommand{\KIT@logo@E}{kit_logo_en_4c_positiv}
+\newcommand{\KIT@logos}{KITlogo_sw_frutiger_CMYK}
+\newcommand{\KIT@logow}{KITlogo_weiss_frutiger_CMYK}
+\newcommand{\KIT@logowg}{KITlogo_weiss_gruen_frutiger_CMYK}
+\newcommand{\KIT@logoOZ}{KITlogo_4c_frutiger_CMYK-OZ}
+\newcommand{\KIT@logoOZs}{KITlogo_sw_frutiger_CMYK-OZ}
+\newcommand{\KIT@logoOZw}{KITlogo_weiss_frutiger_CMYK-OZ}
+\newcommand{\FZK@logo}{FZK-logo-re-SW}
+\newcommand{\UKA@logo}{Wortbildmarke_schwarz}
+\newcommand{\FFI@logo}{logo_ffi_rgb}																	% DS_CHANGE: neues Kommando
+\AtEndOfPackage{\ifKIT@bw\let\KIT@logo=\KIT@logos\fi}
+\let\FZKlogo=\FZK@logo
+\let\KITlogo=\KIT@logo
+\let\UKAlogo=\UKA@logo
+\newcommand{\KIT@German}{%																				% DS_CHANGE: KIT@texta, KIT@logo dazu
+  \let\KIT@name=\KIT@name@D
+  \let\KIT@text=\KIT@text@D
+  \let\KIT@texta=\KIT@texta@D
+  \let\KIT@logo=\KIT@logo@D
+  }
+\newcommand{\KIT@English}{%																				% DS_CHANGE: KIT@texta, KIT@logo  dazu
+  \let\KIT@name=\KIT@name@E
+  \let\KIT@text=\KIT@text@E
+  \let\KIT@texta=\KIT@texta@E
+  \let\KIT@logo=\KIT@logo@E
+  }
+\KIT@German
+\newlength{\KIT@Framewd}
+\newlength{\KIT@RFramewd}
+\newlength{\KIT@Linewd}
+\newlength{\KIT@MFllx}
+\newlength{\KIT@MFlly}
+\newlength{\KIT@MFurx}
+\newlength{\KIT@MFury}
+\newcommand{\KIT@MFrame}[1][0mm]{%
+  \fill[KITblack15] (\KIT@MFllx,\KIT@MFury)
+    -- (\KIT@MFllx,\KIT@MFlly) -- (\KIT@MFurx,\KIT@MFlly)
+    -- (\KIT@MFurx,\KIT@MFury) -- (\KIT@MFllx,\KIT@MFury)
+    -- (\KIT@MFllx+\KIT@Framewd,\KIT@MFury-\KIT@Framewd)
+    -- (\KIT@MFurx-2\KIT@Framewd,\KIT@MFury-\KIT@Framewd)
+    arc( 90:  0:\KIT@Framewd)
+    -- (\KIT@MFurx-\KIT@Framewd,\KIT@MFlly+\KIT@Framewd+#1)
+    -- (2\KIT@Framewd,\KIT@MFlly+\KIT@Framewd+#1)
+    arc(270:180:\KIT@Framewd)
+    -- (\KIT@MFllx+\KIT@Framewd,\KIT@MFury-\KIT@Framewd) -- cycle;
+  }
+\newcommand{\KIT@MFrameMOD}[1][0mm]{%
+  \fill[KITblack15] (0mm,\paperheight)
+    -- (0mm,0mm) -- (\paperwidth,0mm)
+    -- (\paperwidth,\paperheight) -- (0mm,\paperheight)
+    -- (\KIT@Framewd,\paperheight-\KIT@Framewd)
+    -- (\paperwidth-2\KIT@Framewd,\paperheight-\KIT@Framewd)
+    arc( 90:  0:\KIT@Framewd)
+    -- (\paperwidth-\KIT@Framewd,\KIT@Framewd+#1)
+    -- (2\KIT@Framewd,\KIT@Framewd+#1)
+    arc(270:180:\KIT@Framewd)
+    -- (\KIT@Framewd,\paperheight-\KIT@Framewd) -- cycle;
+  }
+\newcommand{\KIT@MFrameRA}[1][0mm]{%
+  \draw[KITblack50,line width=\KIT@RFramewd] (\KIT@MFllx+#1,\KIT@MFury)
+    -- (\KIT@MFllx+#1,\KIT@MFlly+\KIT@Framewd)
+    arc(180:270:\KIT@Framewd)
+    -- (\KIT@MFurx+#1,\KIT@MFlly)
+    -- (\KIT@MFurx+#1,\KIT@MFury-\KIT@Framewd)
+    arc(  0: 90:\KIT@Framewd) -- cycle;
+  }
+%%%\newcommand{\KIT@MFhdr}[1][0mm]{%
+%%%  \fill[KITheadbg] (\KIT@MFllx+#1,\KIT@MFury)
+%%%    -- (\KIT@MFllx+#1,\KIT@MFury-\KIT@MFHdh)
+%%%    -- (\KIT@MFurx+#1,\KIT@MFury-\KIT@MFHdh)
+%%%    -- (\KIT@MFurx+#1,\KIT@MFury-\KIT@Framewd)
+%%%    arc(0:90:\KIT@Framewd) -- cycle;
+%%%  }
+\newcommand{\KIT@MFhdr}[5][0mm]{%
+  \fill[KITheadbg] (#2+#1,#5)
+    -- (#2+#1,#5-\KIT@MFHdh)
+    -- (#4+#1,#5-\KIT@MFHdh)
+    -- (#4+#1,#5-\KIT@Framewd)
+    arc(0:90:\KIT@Framewd) -- cycle;
+  }
+\newcommand{\KIT@marksymbol}[1][KITgreen]{%
+  \tikz \filldraw[#1] (0cm,7cm)
+    -- (0cm,2cm) arc(180:270:2cm) -- (7cm,0cm)
+    -- (7cm,5cm) arc(  0: 90:2cm) -- cycle;}
+\let\KITmark=\KIT@marksymbol
+\newcommand{\KIT@mark}{\resizebox{1ex}{1ex}{\KIT@marksymbol}}
+\newsavebox{\KIT@sbx}
+\newlength{\vgdist}
+\setlength{\vgdist}{0mm}
+\newlength{\KIT@tlen}
+\newlength{\KIT@tlenA}
+\newcommand{\KIT@Box}[1][\relax]{%
+  \KIT@tlen=\ht\KIT@sbx%
+  \KIT@tlenA=\dp\KIT@sbx%
+  \addtolength{\KIT@tlen}{\KIT@tlenA}%   height of image
+  \addtolength{\KIT@tlen}{2\vgdist}%     height of image + distance
+  \KIT@tlenA=\wd\KIT@sbx%                width of image
+  \addtolength{\KIT@tlenA}{2\vgdist}%    width of image + distance
+  \begin{tikzpicture}
+     \clip (0pt,\KIT@tlen+2\KIT@Linewd)
+       -- (0pt,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd+.5\KIT@Linewd)
+       -- (\KIT@tlenA+2\KIT@Linewd,0pt)
+       -- (\KIT@tlenA+2\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd+.5\KIT@Linewd) -- cycle;
+     \ifx#1\relax\relax\else
+       \fill[KITblack15] (.5\KIT@Linewd,.5\KIT@Linewd)
+         rectangle (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd);
+     \fi
+     \pgftext[at=\pgfpoint{\vgdist+\KIT@Linewd}{\vgdist+\KIT@Linewd},left,bottom]{%
+       \usebox{\KIT@sbx}}
+     \draw[KITblack50,line width=\KIT@Linewd]
+       (.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd)
+       -- (.5\KIT@Linewd,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,.5\KIT@Linewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd) -- cycle;
+  \end{tikzpicture}%
+}
+\newcommand{\KITbild}[2][\relax]{%
+  \ifx#1\relax
+    \sbox{\KIT@sbx}{\includegraphics{#2}}
+  \else
+    \sbox{\KIT@sbx}{\includegraphics[#1]{#2}}
+  \fi
+  \KIT@Box%
+}
+\newcommand{\KITvektorgrafik}[2][\relax]{%
+  \ifx#1\relax
+    \sbox{\KIT@sbx}{\includegraphics{#2}}
+  \else
+    \sbox{\KIT@sbx}{\includegraphics[#1]{#2}}
+  \fi
+  \KIT@Box[bg]%
+}
+\newcommand{\KITrahmen}[2][\relax]{%
+  \sbox{\KIT@sbx}{#2}
+  \ifx#1\relax
+    \KIT@Box%
+  \else
+    \KIT@Box[bg]%
+  \fi%
+}
+
+% variables for block environments
+\newsavebox{\KIT@bbx}
+\newlength{\KIT@blen}
+\newlength{\KIT@blenA}
+\newlength{\KIT@blockwidth}
+
+% normal block (black)
+\newcommand{\KIT@NormalBox}[1][\relax]{%
+  \ifx#1\relax
+  	\KIT@blen=0pt%
+  \else
+  	\KIT@blen=\ht\KIT@bbx%
+  	\KIT@blenA=\dp\KIT@bbx%
+  	\addtolength{\KIT@blen}{\KIT@blenA}%   height of image
+  	\addtolength{\KIT@blen}{2mm}%          height of image + distance
+  \fi
+  \KIT@tlen=\ht\KIT@sbx%
+  \KIT@tlenA=\dp\KIT@sbx%
+  \addtolength{\KIT@tlen}{\KIT@tlenA}%   height of image
+  \addtolength{\KIT@tlen}{2mm}%          height of image + distance
+  \addtolength{\KIT@tlen}{\KIT@blen}%    height of image + distance + titleblock
+  \KIT@tlenA=\wd\KIT@sbx%                width of image
+  \addtolength{\KIT@tlenA}{2mm}%         width of image + distance
+  \begin{tikzpicture}
+     \clip (0pt,\KIT@tlen+2\KIT@Linewd)
+       -- (0pt,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd+.5\KIT@Linewd)
+       -- (\KIT@tlenA+2\KIT@Linewd,0pt)
+       -- (\KIT@tlenA+2\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd+.5\KIT@Linewd) -- cycle;
+       
+     \fill[KITblack15] (.5\KIT@Linewd,.5\KIT@Linewd)
+       rectangle (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd);
+     
+     \pgftext[at=\pgfpoint{1mm+\KIT@Linewd}{1mm+\KIT@Linewd},left,bottom]{\usebox{\KIT@sbx}}
+       
+     \draw[KITblack50,line width=\KIT@Linewd]
+       (.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd)
+       -- (.5\KIT@Linewd,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,.5\KIT@Linewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd) -- cycle;
+
+	 \ifx#1\relax\relax\else
+       \fill[KITblack50] (.5\KIT@Linewd,\KIT@tlen+2\KIT@Linewd)
+         rectangle (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen-\KIT@blen+2\KIT@Linewd);
+       \pgftext[at=\pgfpoint{\KIT@Linewd}{1mm+\KIT@tlen-\KIT@blen+2\KIT@Linewd},left,bottom]{ \usebox{\KIT@bbx} }
+     \fi
+  \end{tikzpicture}%
+}
+%\newcommand{\KITblock}[2][\relax]{%
+%  \sbox{\KIT@sbx}{\begin{minipage}[t]{\textwidth-2mm}#2\end{minipage}}
+%  \ifx#1\relax
+%    \KIT@NormalBox%
+%  \else
+%    \sbox{\KIT@bbx}{\textcolor{white}{\textbf{#1}}}
+%    \KIT@NormalBox[#2]%
+%  \fi%
+%}
+\newenvironment<>{KITblock}[2][]{%
+\KIT@blockwidth=\textwidth
+\addtolength{\KIT@blockwidth}{-2mm}
+\sbox{\KIT@bbx}{\textcolor{white}{\textbf{#2}}}
+\begin{lrbox}{\KIT@sbx}\setbeamercolor{structure}{bg=KITblack15}\begin{minipage}[t]{\KIT@blockwidth}}
+{\end{minipage}\end{lrbox}\ifdim\wd\KIT@bbx=0pt\KIT@NormalBox\else\KIT@NormalBox[title]\fi}
+
+% alert block (red)
+\newcommand{\KIT@AlertBox}[1][\relax]{%
+  \ifx#1\relax
+  	\KIT@blen=0pt%
+  \else
+  	\KIT@blen=\ht\KIT@bbx%
+  	\KIT@blenA=\dp\KIT@bbx%
+  	\addtolength{\KIT@blen}{\KIT@blenA}%   height of image
+  	\addtolength{\KIT@blen}{2mm}%          height of image + distance
+  \fi
+  \KIT@tlen=\ht\KIT@sbx%
+  \KIT@tlenA=\dp\KIT@sbx%
+  \addtolength{\KIT@tlen}{\KIT@tlenA}%   height of image
+  \addtolength{\KIT@tlen}{2mm}%          height of image + distance
+  \addtolength{\KIT@tlen}{\KIT@blen}%    height of image + distance + titleblock
+  \KIT@tlenA=\wd\KIT@sbx%                width of image
+  \addtolength{\KIT@tlenA}{2mm}%         width of image + distance
+  \begin{tikzpicture}
+     \clip (0pt,\KIT@tlen+2\KIT@Linewd)
+       -- (0pt,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd+.5\KIT@Linewd)
+       -- (\KIT@tlenA+2\KIT@Linewd,0pt)
+       -- (\KIT@tlenA+2\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd+.5\KIT@Linewd) -- cycle;
+       
+     \fill[KITred15] (.5\KIT@Linewd,.5\KIT@Linewd)
+       rectangle (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd);
+     
+     \pgftext[at=\pgfpoint{1mm+\KIT@Linewd}{1mm+\KIT@Linewd},left,bottom]{\usebox{\KIT@sbx}}
+       
+     \draw[KITred50,line width=\KIT@Linewd]
+       (.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd)
+       -- (.5\KIT@Linewd,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,.5\KIT@Linewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd) -- cycle;
+
+	 \ifx#1\relax\relax\else
+       \fill[KITred50] (.5\KIT@Linewd,\KIT@tlen+2\KIT@Linewd)
+         rectangle (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen-\KIT@blen+2\KIT@Linewd);
+       \pgftext[at=\pgfpoint{\KIT@Linewd}{1mm+\KIT@tlen-\KIT@blen+2\KIT@Linewd},left,bottom]{ \usebox{\KIT@bbx} }
+     \fi
+  \end{tikzpicture}%
+}
+%\newcommand{\KITalertblock}[2][\relax]{%
+%  \sbox{\KIT@sbx}{\begin{minipage}[t]{\textwidth-2mm}#2\end{minipage}}
+%  \ifx#1\relax
+%    \KIT@AlertBox%
+%  \else
+%    \sbox{\KIT@bbx}{\textcolor{white}{\textbf{#1}}}
+%    \KIT@AlertBox[#2]%
+%  \fi%
+%}
+\newenvironment<>{KITalertblock}[2][]{%
+\KIT@blockwidth=\textwidth
+\addtolength{\KIT@blockwidth}{-2mm}
+\sbox{\KIT@bbx}{\textcolor{white}{\textbf{#2}}}
+\begin{lrbox}{\KIT@sbx}\setbeamercolor{structure}{bg=KITred15}\begin{minipage}[t]{\KIT@blockwidth}}
+{\end{minipage}\end{lrbox}\ifdim\wd\KIT@bbx=0pt\KIT@AlertBox\else\KIT@AlertBox[title]\fi}
+
+% example block (green)
+\newcommand{\KIT@ExampleBox}[1][\relax]{%
+  \ifx#1\relax
+  	\KIT@blen=0pt%
+  \else
+  	\KIT@blen=\ht\KIT@bbx%
+  	\KIT@blenA=\dp\KIT@bbx%
+  	\addtolength{\KIT@blen}{\KIT@blenA}%   height of image
+  	\addtolength{\KIT@blen}{2mm}%          height of image + distance
+  \fi
+  \KIT@tlen=\ht\KIT@sbx%
+  \KIT@tlenA=\dp\KIT@sbx%
+  \addtolength{\KIT@tlen}{\KIT@tlenA}%   height of image
+  \addtolength{\KIT@tlen}{2mm}%          height of image + distance
+  \addtolength{\KIT@tlen}{\KIT@blen}%    height of image + distance + titleblock
+  \KIT@tlenA=\wd\KIT@sbx%                width of image
+  \addtolength{\KIT@tlenA}{2mm}%         width of image + distance
+  \begin{tikzpicture}
+     \clip (0pt,\KIT@tlen+2\KIT@Linewd)
+       -- (0pt,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd+.5\KIT@Linewd)
+       -- (\KIT@tlenA+2\KIT@Linewd,0pt)
+       -- (\KIT@tlenA+2\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd+.5\KIT@Linewd) -- cycle;
+       
+     \fill[KITgreen15] (.5\KIT@Linewd,.5\KIT@Linewd)
+       rectangle (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd);
+     
+     \pgftext[at=\pgfpoint{1mm+\KIT@Linewd}{1mm+\KIT@Linewd},left,bottom]{\usebox{\KIT@sbx}}
+       
+     \draw[KITgreen50,line width=\KIT@Linewd]
+       (.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd)
+       -- (.5\KIT@Linewd,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,.5\KIT@Linewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd) -- cycle;
+
+	 \ifx#1\relax\relax\else
+       \fill[KITgreen50] (.5\KIT@Linewd,\KIT@tlen+2\KIT@Linewd)
+         rectangle (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen-\KIT@blen+2\KIT@Linewd);
+       \pgftext[at=\pgfpoint{\KIT@Linewd}{1mm+\KIT@tlen-\KIT@blen+2\KIT@Linewd},left,bottom]{ \usebox{\KIT@bbx} }
+     \fi
+  \end{tikzpicture}%
+}
+%\newcommand{\KITexampleblock}[2][\relax]{%
+%  \sbox{\KIT@sbx}{\begin{minipage}[t]{\textwidth-2mm}#2\end{minipage}}
+%  \ifx#1\relax
+%    \KIT@ExampleBox%
+%  \else
+%    \sbox{\KIT@bbx}{\textcolor{white}{\textbf{#1}}}
+%    \KIT@ExampleBox[#2]%
+%  \fi%
+%}
+\newenvironment<>{KITexampleblock}[2][]{%
+\KIT@blockwidth=\textwidth
+\addtolength{\KIT@blockwidth}{-2mm}
+\sbox{\KIT@bbx}{\textcolor{white}{\textbf{#2}}}
+\begin{lrbox}{\KIT@sbx}\setbeamercolor{structure}{bg=KITgreen15}\begin{minipage}[t]{\KIT@blockwidth}}
+{\end{minipage}\end{lrbox}\ifdim\wd\KIT@bbx=0pt\KIT@ExampleBox\else\KIT@ExampleBox[title]\fi}
+
+% info block (blue)
+\newcommand{\KIT@InfoBox}[1][\relax]{%
+  \ifx#1\relax
+  	\KIT@blen=0pt%
+  \else
+  	\KIT@blen=\ht\KIT@bbx%
+	\KIT@blenA=\dp\KIT@bbx%
+  	\addtolength{\KIT@blen}{\KIT@blenA}%   height of image
+  	\addtolength{\KIT@blen}{2mm}%          height of image + distance
+  \fi
+  \KIT@tlen=\ht\KIT@sbx%
+  \KIT@tlenA=\dp\KIT@sbx%
+  \addtolength{\KIT@tlen}{\KIT@tlenA}%   height of image
+  \addtolength{\KIT@tlen}{2mm}%          height of image + distance
+  \addtolength{\KIT@tlen}{\KIT@blen}%    height of image + distance + titleblock
+  \KIT@tlenA=\wd\KIT@sbx%                width of image
+  \addtolength{\KIT@tlenA}{2mm}%         width of image + distance
+  \begin{tikzpicture}
+     \clip (0pt,\KIT@tlen+2\KIT@Linewd)
+       -- (0pt,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd+.5\KIT@Linewd)
+       -- (\KIT@tlenA+2\KIT@Linewd,0pt)
+       -- (\KIT@tlenA+2\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd+.5\KIT@Linewd) -- cycle;
+       
+     \fill[KITblue15] (.5\KIT@Linewd,.5\KIT@Linewd)
+       rectangle (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd);
+     
+     \pgftext[at=\pgfpoint{1mm+\KIT@Linewd}{1mm+\KIT@Linewd},left,bottom]{\usebox{\KIT@sbx}}
+       
+     \draw[KITblue50,line width=\KIT@Linewd]
+       (.5\KIT@Linewd,\KIT@tlen+1.5\KIT@Linewd)
+       -- (.5\KIT@Linewd,\KIT@Framewd+.5\KIT@Linewd)
+       arc(180:270:\KIT@Framewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,.5\KIT@Linewd)
+       -- (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen-\KIT@Framewd+1.5\KIT@Linewd)
+       arc(0:90:\KIT@Framewd) -- cycle;
+
+	 \ifx#1\relax\relax\else
+       \fill[KITblue50] (.5\KIT@Linewd,\KIT@tlen+2\KIT@Linewd)
+         rectangle (\KIT@tlenA+1.5\KIT@Linewd,\KIT@tlen-\KIT@blen+2\KIT@Linewd);
+       \pgftext[at=\pgfpoint{\KIT@Linewd}{1mm+\KIT@tlen-\KIT@blen+2\KIT@Linewd},left,bottom]{ \usebox{\KIT@bbx} }
+     \fi
+  \end{tikzpicture}%
+}
+%\newcommand{\KITinfoblock}[2][\relax]{%
+%  \sbox{\KIT@sbx}{\begin{minipage}[t]{\textwidth-2mm}#2\end{minipage}}
+%  \ifx#1\relax
+%    \KIT@InfoBox%
+%  \else
+%    \sbox{\KIT@bbx}{\textcolor{white}{\textbf{#1}}}
+%    \KIT@InfoBox[title]%
+%  \fi%
+%}
+\newenvironment<>{KITinfoblock}[2][]{%
+\KIT@blockwidth=\textwidth
+\addtolength{\KIT@blockwidth}{-2mm}
+\sbox{\KIT@bbx}{\textcolor{white}{\textbf{#2}}}
+\begin{lrbox}{\KIT@sbx}\setbeamercolor{structure}{bg=KITblue15}\begin{minipage}[t]{\KIT@blockwidth}}
+{\end{minipage}\end{lrbox}\ifdim\wd\KIT@bbx=0pt\KIT@InfoBox\else\KIT@InfoBox[title]\fi}
+
+
+
+\endinput
+%%
+%% End of file `KITdefs.sty'.

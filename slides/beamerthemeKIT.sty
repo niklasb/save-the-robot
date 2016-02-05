@@ -1,0 +1,126 @@
+%%
+%% This is file `beamerthemeKIT.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITbeamer.dtx  (with options: `base,grid')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2008 by Klaus Braune <klaus.braune@kit.edu>
+%%
+%% Modifications by Dennis Schieferdecker <dennis.schieferdecker@kit.edu>
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{beamerthemeKIT}
+    [2008/11/03 v0.1 base part of the beamer theme KIT]
+\RequirePackage{mathpazo}
+%\RequirePackage{uarial}
+\RequirePackage{helvet}
+\RequirePackage{tikz}
+\newif\ifKIT@grid
+\KIT@gridfalse
+\mode<presentation>
+\newif\ifKIT@bw\KIT@bwfalse
+\RequirePackage{KITdefs}
+\newlength{\K@mm}
+\setlength{\K@mm}{.50393700787402truemm}
+\newlength{\K@pt}
+%%\setlength{\K@pt}{.5333333333333333333pt}
+\setlength{\K@pt}{.50393700787402truept}
+\addtolength{\hoffset}{-2.4mm}
+\setlength{\textwidth}{225.0\K@mm}
+\setlength{\KIT@titimgwd}{248\K@mm}
+\let\titleimagewd=\KIT@titimgwd
+  \def\Gm@lmargin{19\K@mm}					% DS_CHANGE: dazu (normal: 1cm)
+  \def\Gm@rmargin{9\K@mm}					% DS_CHANGE: dazu (normal: 1cm)
+\newlength{\titleimageht}\setlength{\titleimageht}{77.5\K@mm}
+\setlength{\KIT@Framewd}{3\K@mm}
+\setlength{\KIT@RFramewd}{.5\K@mm}
+\setlength{\KIT@Linewd}{.5\K@pt}
+\setlength{\KIT@MFllx}{0\K@mm}
+\setlength{\KIT@MFlly}{0\K@mm}
+\setlength{\KIT@MFurx}{254\K@mm}
+\setlength{\KIT@MFury}{190\K@mm}
+\newcommand{\KIT@MFodd}{10\K@mm}
+\newcommand{\KIT@MFHdh}{0\K@mm}
+\newcommand{\KIT@MFbadd}{12\K@mm}
+\setlength{\leftmargini}{13.93329pt}
+\setlength{\leftmarginii}{16.06725pt}
+\setlength{\leftmarginiii}{16.06725pt}
+\setlength{\leftmarginiv}{6.40mm}
+\setlength{\leftmarginv}{6.40mm}
+\setlength{\leftmarginvi}{0.00mm}
+\newlength{\labelsep@itemi}
+\setlength{\labelsep@itemi}{6.89763pt}
+\newlength{\labelsep@itemii}
+\setlength{\labelsep@itemii}{5.475pt}
+\newlength{\labelsep@itemiii}
+\setlength{\labelsep@itemiii}{3.76784pt}
+\newlength{\labelsep@itemiv}
+\setlength{\labelsep@itemiv}{4.33688pt}
+\let\labelsep@itemv=\labelsep@itemiv
+\let\labelsep@itemvi=\labelsep@itemv
+\newlength{\labelsep@enumi}							% DS_CHANGE: die folgenden 10 Zeilen dazu
+\setlength{\labelsep@enumi}{3.0pt}
+\newlength{\labelsep@enumii}
+\setlength{\labelsep@enumii}{3.0pt}
+\newlength{\labelsep@enumiii}
+\setlength{\labelsep@enumiii}{3.0pt}
+\newlength{\labelsep@enumiv}
+\setlength{\labelsep@enumiv}{3.0pt}
+\let\labelsep@enumv=\labelsep@enumiv
+\let\labelsep@enumvi=\labelsep@enumv
+%\let\labelsep@enumi=\labelsep@itemi				% DS_CHANGE: die folgenden 6 zeilen auskommentiert
+%\let\labelsep@enumii=\labelsep@itemii
+%\let\labelsep@enumiii=\labelsep@itemiii
+%\let\labelsep@enumiv=\labelsep@itemiv
+%\let\labelsep@enumv=\labelsep@itemv
+%\let\labelsep@enumvi=\labelsep@itemvi
+\newlength{\item@indenti}
+\setlength{\item@indenti}{0pt}
+\let\item@indentii=\item@indenti
+\let\item@indentiii=\item@indenti
+\let\item@indentiv=\item@indenti
+\let\item@indentv=\item@indenti
+\newlength{\item@indentvi}
+\setlength{\item@indentvi}{-\labelsep@itemiv}
+\let\enum@indenti=\item@indenti
+\let\enum@indentii=\item@indentii
+\let\enum@indentiii=\item@indentiii
+\let\enum@indentiv=\item@indentiv
+\let\enum@indentv=\item@indentv
+\let\enum@indentvi=\item@indentvi
+\usefonttheme{KIT}
+\usecolortheme{KIT}
+\useinnertheme{KIT}
+\useoutertheme{KIT}
+\newcommand{\heading}[1]{%
+  \vspace{4.9\K@pt}\par{\fontsize{20\K@pt}{22\K@pt}\bfseries#1}
+}
+\DeclareOption{16pt}{\input{KIT16.clo}}
+\DeclareOption{18pt}{\input{KIT18.clo}}
+\DeclareOption{20pt}{\input{KIT20.clo}}
+\DeclareOption{22pt}{\input{KIT22.clo}}
+\DeclareOption{24pt}{\input{KIT24.clo}}
+\ExecuteOptions{20pt}
+\ProcessOptions
+\newcommand{\usenavigationsymbols}[1][fHb]{\xdef\KIT@nav@syms{#1!}}
+\let\KIT@nav@syms=\relax
+\AtBeginDocument{\normalsize\raggedbottom}
+\mode
+<all>
+\endinput
+%%
+%% End of file `beamerthemeKIT.sty'.

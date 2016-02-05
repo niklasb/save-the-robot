@@ -1,0 +1,190 @@
+
+\begin{frame}{Status}
+\sout{Computing visibility graphs}
+\\[2em]
+Computing shortest route
+\\[2em]
+Possible optimizations
+\end{frame}
+
+\begin{frame}{Computing shortest route}
+
+\begin{center}
+\vspace{-1em}
+\only<1>{%
+\includegraphics[page=1,height=200pt]{graphics/not_working.pdf}%
+}%
+\only<2>{%
+\includegraphics[page=2,height=200pt]{graphics/not_working.pdf}%
+}%
+\end{center}
+\end{frame}
+
+\begin{frame}{Computing shortest route}
+
+\begin{itemize}
+\item Problem: How to guarantee that path includes charging stations?
+\pause
+\item Idea: Perform search on a reachability graph:
+    \begin{itemize}
+        \item Edges only between charging stations (plus start/end node)
+        \item There's an edge between two nodes only if there's a path between them in the visibility graph that has a length of at most $r$
+    \end{itemize}
+\end{itemize}
+\vspace{-2em}
+\pause
+\begin{center}
+\includegraphics[page=10,height=160pt]{graphics/algo_basic.pdf}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Status}
+\sout{Computing visibility graphs}
+\\[2em]
+Computing shortest route
+\begin{itemize}
+    \item Computing reachability graph
+    \item Computing final path on reachability graph
+\end{itemize}
+\vspace{2em}
+Possible optimizations
+\end{frame}
+
+
+\begin{frame}[t]{Computing reachability graph}
+
+\begin{itemize}
+\item Compute shortest path from every charging station to all reachable charging stations
+\end{itemize}
+
+\vspace{-2em}
+
+\begin{center}
+\only<1>{%
+\includegraphics[page=1,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<2>{%
+\includegraphics[page=2,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<3>{%
+\includegraphics[page=3,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<4>{%
+\includegraphics[page=4,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<5>{%
+\includegraphics[page=5,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<6>{%
+\includegraphics[page=6,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<7>{%
+\includegraphics[page=7,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<8>{%
+\includegraphics[page=8,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<9>{%
+\includegraphics[page=9,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<10>{%
+\includegraphics[page=10,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\only<11>{%
+\includegraphics[page=12,height=200pt]{graphics/algo_basic.pdf}%
+}%
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Status}
+\sout{Computing visibility graphs}
+\\[2em]
+Computing shortest route
+\begin{itemize}
+    \item \sout{Computing reachability graph}
+    \item Computing final path on reachability graph
+\end{itemize}
+\vspace{2em}
+Possible optimizations
+\end{frame}
+
+\begin{frame}[t]{Computing final route}
+
+\begin{itemize}
+    \item Need one final (shortest) path computation from start to end node
+    \visible<2,3>{\item Runtime: Visibility graph + $(|C| + 3)$ shortest path calculations}
+    \visible<3>{\item Runtime: $$\mathcal{O}(((|C| + |P|)^2 + |C| \cdot |E|) \cdot \log(|C| + |P|))$$}
+\end{itemize}
+
+\begin{center}
+\includegraphics[page=1,height=100pt]{graphics/final.pdf}%
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Status}
+\sout{Computing visibility graphs}
+\\[2em]
+\sout{Computing shortest route}
+\begin{itemize}
+    \item \sout{Computing reachability graph}
+    \item \sout{Computing final path on reachability graph}
+\end{itemize}
+\vspace{2em}
+Possible optimizations
+\end{frame}
+
+\begin{frame}[t]{Further Optimization: Problem}
+
+\begin{itemize}
+    \item Huge input set, but start and end are close together (compared to size of the input)
+    \item Need to compute visibility graph for whole input set, expensive!
+\end{itemize}
+
+\vspace{2em}
+
+\begin{center}
+\only<1>{%
+\includegraphics[page=1,height=80pt]{graphics/further_stuff.pdf}%
+}%
+\only<2>{%
+\includegraphics[page=2,height=80pt]{graphics/further_stuff.pdf}%
+}%
+\end{center}
+\end{frame}
+
+\begin{frame}[t]{Further Optimization: Idea}
+
+\begin{itemize}
+    \item Compute visibility graph and shortest paths ''on-demand'':
+    \begin{enumerate}
+        \item Start at $s$
+        \item Compute visibility graph for all nodes in radius $r$ around current node
+        \item Perform shortest path search for each charging station in current radius
+        \item Pick charging station with lowest distance to $s$ as next node
+        \item Go back to 2. until end node $t$  found
+    \end{enumerate}
+\end{itemize}
+
+\vspace{2em}
+
+\begin{center}
+\only<1>{%
+\includegraphics[page=1,height=80pt]{graphics/further_solutions.pdf}%
+}%
+\only<2>{%
+\includegraphics[page=2,height=80pt]{graphics/further_solutions.pdf}%
+}%
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Questions?}
+
+\begin{center}
+\includegraphics[page=12,height=200pt]{graphics/algo_basic.pdf}
+\end{center}
+
+\end{frame}

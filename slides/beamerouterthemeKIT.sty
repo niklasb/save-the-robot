@@ -1,0 +1,189 @@
+%%
+%% This is file `beamerouterthemeKIT.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITbeamer.dtx  (with options: `outer,grid')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2008 by Klaus Braune <klaus.braune@kit.edu>
+%%
+%% Modifications by Dennis Schieferdecker <dennis.schieferdecker@kit.edu>
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{beamerouterthemeKIT}
+    [2008/11/03 v0.1 outer part of the beamer theme KIT]
+\mode<presentation>
+\setbeamertemplate{navigation symbols}{}
+\newif\ifKIT@ins@warn
+\KIT@ins@warntrue
+%%\setbeamertemplate{frametitle}{\Large\insertframetitle\par}
+%%\setbeamertemplate{frametitle}{\rule{0pt}{8.7mm}\insertframetitle\par}
+%Test%\setbeamertemplate{frametitle}{\rule{0pt}{21.3125\K@mm}}
+%setbeamertemplate{frametitle}{\rule{0pt}{21.3125\K@mm}}
+%%\setbeamertemplate{frametitle}{\rule{0pt}{28.3125\K@mm}}
+%\setbeamertemplate{frametitle}{\rule{0pt}{21.3125\K@mm}}
+% Replaced by '\geometry{top=\KIT@ptop}'
+%\setbeamertemplate{frametitle}{\rule{0pt}{33.7125\K@mm}}	% for pos 't'
+\setbeamertemplate{frametitle}{\vspace*{-1.80\K@mm}}
+\setbeamertemplate{framesubtitle}{}
+%
+% Geometry changes to be done elsewhere, e.g. at package 'beamerthemeKIT'
+\newlength{\KIT@ptop}
+%\setlength{\KIT@ptop}{36.25\K@mm}
+%\setlength{\KIT@ptop}{34.25\K@mm}					
+\setlength{\KIT@ptop}{32.00\K@mm}										% DS_CHANGE: Länge geändert 32mm statt 36mm
+\geometry{top=\KIT@ptop,head=0pt,headsep=0pt,bottom=18\K@mm}
+\AtBeginDocument{
+  \addtobeamertemplate{background}{}{%
+%    \settowidth{\KIT@tlen}{\beamer@frametitle}
+%    \ifdim\KIT@tlen<.1pt
+%%     \gdef\beamer@frametitle{\rule{0pt}{0pt}}
+%%     \gdef\beamer@frametitle{Fake Title}
+%%     \gdef\insertframetitle{\rule{0pt}{0pt}}
+%%     \gdef\insertframetitle{Fake Title}
+%      \frametitle{Fake}
+%    \fi
+   %\vspace*{-\KIT@ptop}%
+    \begin{tikzpicture}
+%     \useasboundingbox (-2.400mm, 0.000mm) rectangle (125.600mm,96.000mm);
+      \useasboundingbox (-2.400mm,\KIT@ptop) rectangle (125.600mm,96.000mm-\KIT@ptop);
+%^    \useasboundingbox (-2.400mm,-0.???mm) rectangle (125.600mm,95.???mm);
+%~v   \useasboundingbox (-2.400mm,-0.200mm) rectangle (125.600mm,95.800mm);
+%v    \useasboundingbox (-2.400mm,-0.200mm) rectangle (125.600mm,96.800mm);
+%bad% \useasboundingbox (0mm,0mm) rectangle (128mm,96mm);
+   %  \draw[KITgreen,line width=1.56mm] (2.33mm,94.73mm) -- (2.33mm,87.05mm);
+      %\fill[KITgreen] (3\K@mm,172\K@mm) -- (5.5\K@mm,172\K@mm)										% DS_CHANGE: grünen Block entfernt
+      %             -- (5.5\K@mm,187\K@mm) -- (3\K@mm,187\K@mm) -- cycle;
+      \KIT@MFrame[\KIT@MFbadd]
+\ifKIT@grid
+      \draw[step=1\K@mm,style=help lines]
+        (0\K@mm,0\K@mm) grid (254\K@mm,190\K@mm);
+      \draw[step=10\K@mm,red,very thin]
+        (0\K@mm,0\K@mm) grid (254\K@mm,190\K@mm);
+      \draw[blue,thin]
+        (0\K@mm,0\K@mm) rectangle (254\K@mm,190\K@mm);
+%%    \draw[blue,thick]
+%%      (0\K@mm,0\K@mm) -- (254\K@mm,0\K@mm) -- (254\K@mm,190\K@mm)
+%%                      -- (0\K@mm,190\K@mm) -- cycle;
+\fi
+   %  \pgftext[at=\pgfpoint{124.07mm}{92.44mm},right,top]
+   %    {\pgfimage[interpolate=true,width=25mm]{\KIT@logo}}
+    % \pgftext[at=\pgfpoint{232.5\K@mm}{172\K@mm},right,top]
+      \pgftext[at=\pgfpoint{246.5\K@mm}{182.5\K@mm},right,top]
+        {\pgfimage[interpolate=true,width=28.5\K@mm]{\KIT@logo}}
+ %    \pgftext[at=\pgfpoint{15\K@mm}{172\K@mm},left,base]
+ %      {\fontsize{30\K@pt}{32\K@pt}\bfseries\insertframetitle}
+      \pgftext[at=\pgfpoint{14.5\K@mm}{172\K@mm},left,base]				% DS_CHANGE: x=14.5mm statt 15mm
+    %   {\parbox[t]{194\K@mm}{\fontsize{30\K@pt}{32\K@pt}\bfseries\insertframetitle}}
+ %    \pgftext[at=\pgfpoint{15\K@mm}{154\K@mm},left,base]
+    % \pgftext[at=\pgfpoint{15\K@mm}{152\K@mm},left,base]
+ %      {\fontsize{25\K@pt}{27\K@pt}\bfseries\insertframesubtitle}
+    %   {\fontsize{24\K@pt}{26\K@pt}\bfseries\insertframesubtitle}
+        {\parbox[t]{194\K@mm}{\raggedright%
+           \fontsize{30\K@pt}{36\K@pt}\bfseries
+           \insertframetitle\rule{0pt}{0pt}\\[4\K@pt]
+           \fontsize{18.1\K@pt}{21.6\K@pt}\bfseries						% DS_CHANGE: Zeile dazu (Font = small), Folgezeile auskommentiert
+%           \fontsize{24\K@pt}{26\K@pt}\bfseries
+           \insertframesubtitle}}
+     \pgftext[at=\pgfpoint{9\K@mm}{8.5\K@mm},base]						% DS_CHANGE: Foliennummer größer (Original aukommentiert nächste 4 Zeilen)
+       {\fontsize{14\K@pt}{16\K@pt}\selectfont\bfseries\insertframenumber}
+%      \pgftext[at=\pgfpoint{6\K@mm}{12\K@mm},left,top]
+%        {\fontsize{7\K@pt}{8.5\K@pt}\bfseries\vphantom{0}\insertframenumber}
+%      \pgftext[at=\pgfpoint{17\K@mm}{12\K@mm},left,top]
+%        {\fontsize{7\K@pt}{8.5\K@pt}\selectfont\vphantom{0}\insertdate}     
+     \pgftext[at=\pgfpoint{15\K@mm}{9\K@mm},left,base]					% DS_CHANGE: Name/Titel größer ( Orginal auskommentiert, nächste 7 Zeilen)
+       {\KIT@fnt@twelvept\selectfont\bfseries%
+        \insertshortauthor:}
+     \pgftext[at=\pgfpoint{15\K@mm}{4\K@mm},left,base]
+       {\KIT@fnt@twelvept\selectfont%
+        \insertshorttitle}
+%      \pgftext[at=\pgfpoint{37\K@mm}{12\K@mm},left,top]
+%        {\fontsize{7\K@pt}{8.5\K@pt}\selectfont\vphantom{0}%
+%         \parbox[t]{130\K@mm}{%
+%           \mbox{\insertshortauthor}
+%   \ifx\beamer@shortinstitute\relax\relax\else
+%             \ -- \ \insertshortinstitute\fi\\
+%           \insertshorttitle}}
+  %   \pgftext[at=\pgfpoint{136\K@mm}{6.25\K@mm},left]
+  %     {\pgfimage[interpolate=true,width=45\K@mm]{\FZK@logo}}
+  %   \pgftext[at=\pgfpoint{237\K@mm}{7.5\K@mm},right]
+  %     {\pgfimage[interpolate=true,width=50\K@mm]{\UKA@logo}}
+  %   \pgftext[at=\pgfpoint{15\K@mm}{4\K@mm},left,base]
+  %     {\KIT@text}
+    \pgftext[at=\pgfpoint{251\K@mm}{9\K@mm},right,base]				% DS_CHANGE: Fußzeile geändert ( Orginal auskommentiert, nächste 6 Zeilen)
+      {\KIT@fnt@twelvept\selectfont\bfseries \KIT@faculty}
+    \pgftext[at=\pgfpoint{251\K@mm}{4\K@mm},right,base]
+      {\KIT@fnt@twelvept\selectfont \KIT@institute}
+      %\pgftext[at=\pgfpoint{251\K@mm}{14\K@mm},right,top]
+      %\pgfimage[interpolate=true,width=52\K@mm]{\FFI@logo}}
+%      \pgftext[at=\pgfpoint{177\K@mm}{13.5\K@mm},left,top]
+%        {\pgfimage[interpolate=true,width=32\K@mm]{\FZK@logo}}
+%      \pgftext[at=\pgfpoint{217\K@mm}{13.1\K@mm},left,top]
+%        {\pgfimage[interpolate=true,width=34\K@mm]{\UKA@logo}}
+%      \pgftext[at=\pgfpoint{177.93\K@mm}{2.4\K@mm},left,base]
+%        {\fontsize{4.94213\K@pt}{6\K@pt}\selectfont\KIT@text}
+
+        
+      \ifx\KIT@nav@syms\relax \relax
+      \else
+  %%    \pgftext[at=\pgfpoint{126.52mm}{5.95mm},right]
+  %     \pgftext[at=\pgfpoint{237\K@mm}{15\K@mm},bottom,right]
+        \pgftext[at=\pgfpoint{251\K@mm}{15\K@mm},bottom,right]
+          {\color{KITblack50}%
+  %        \setbeamercolor*{navigation symbols}{fg=blue}%
+           \setbeamercolor*{navigation symbols}{fg=KITblack50}%
+  %        \setbeamercolor*{navigation symbols dimmed}{fg=white}%
+           \setbeamercolor*{navigation symbols dimmed}{fg=KITblack30}%
+           \expandafter\KIT@ins@nav\KIT@nav@syms
+          }
+      \fi
+    \end{tikzpicture}%
+    }
+  \def\KIT@ins@nav#1{%
+    \if#1!\let\@next=\relax\else
+    \if#1s\hbox{\insertslidenavigationsymbol}%
+          \let\@next=\KIT@ins@nav\else
+    \if#1f\hbox{\insertframenavigationsymbol}%
+          \let\@next=\KIT@ins@nav\else
+    \if#1H\hbox{\insertsectionnavigationsymbol}%
+          \let\@next=\KIT@ins@nav\else
+    \if#1h\hbox{\insertsubsectionnavigationsymbol}%
+          \let\@next=\KIT@ins@nav\else
+    \if#1d\hbox{\insertdocnavigationsymbol}%
+          \let\@next=\KIT@ins@nav\else
+    \if#1b\hbox{\insertbackfindforwardnavigationsymbol}%
+          \let\@next=\KIT@ins@nav\else
+          \ifKIT@ins@warn
+            \PackageWarning{beamerKIT}{Invalid navigation symbol key `#1' has been ignored}%
+            \message{To avoid the warning use only the keys^^J
+              \@spaces `s' to insert the slide navigation symbol^^J
+              \@spaces `f' to insert the frame navigation symbol^^J
+              \@spaces `H' to insert the section navigation symbol^^J
+              \@spaces `h' to insert the subsection navigation symbol^^J
+              \@spaces `d' to insert the doc navigation symbol and^^J
+              \@spaces `b' to insert the backward - find - forward symbols.^^J}%
+            \global\KIT@ins@warnfalse
+          \fi
+          \let\@next=\KIT@ins@nav
+    \fi\fi\fi\fi\fi\fi\fi
+    \@next
+  }
+}
+\mode
+<all>
+\endinput
+%%
+%% End of file `beamerouterthemeKIT.sty'.

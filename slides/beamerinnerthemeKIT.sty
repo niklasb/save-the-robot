@@ -1,0 +1,229 @@
+%%
+%% This is file `beamerinnerthemeKIT.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITbeamer.dtx  (with options: `inner,grid')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2008 by Klaus Braune <klaus.braune@kit.edu>
+%%
+%% Modifications by Dennis Schieferdecker <dennis.schieferdecker@kit.edu>
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{beamerinnerthemeKIT}
+    [2008/11/03 v0.1 inner part of the beamer theme KIT]
+\mode<presentation>
+\newcommand{\max@itemdepth}{6}
+\newcommand{\max@enumdepth}{6}
+\renewcommand{\itemize}[1][]{%
+  \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+  \ifnum \@itemdepth >\max@itemdepth\relax\@toodeep\else
+    \advance\@itemdepth\@ne
+    \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+    \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+    \list
+      {\usebeamertemplate{itemize \beameritemnestingprefix item}}
+      {\def\makelabel##1{%
+          {%
+            \hss\llap{{%
+                \usebeamerfont*{itemize \beameritemnestingprefix item}%
+                \usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+          }%
+        }%
+       \expandafter\setlength{\labelsep}%
+   {\csname labelsep@item\romannumeral\the\@itemdepth\endcsname}
+       \expandafter\setlength{\itemindent}%
+   {\csname item@indent\romannumeral\the\@itemdepth\endcsname}
+      }
+  \fi%
+  \beamer@cramped%
+  \raggedright%
+  \beamer@firstlineitemizeunskip%
+}
+\defbeamertemplateparent{itemize items}[KIT]{itemize item,itemize subitem,itemize subsubitem,subsubsubitem,subsubsubsubitem,subsubsubsubsubitem}
+{}
+\setbeamertemplate{items}[KIT]
+\setbeamertemplate{itemize item}{\KIT@mark}
+\setbeamertemplate{itemize subitem}{\KIT@mark}
+\setbeamertemplate{itemize subsubitem}{\KIT@mark}
+\setbeamertemplate{itemize subsubsubitem}{\KIT@mark}
+\setbeamertemplate{itemize subsubsubsubitem}{\KIT@mark}
+\setbeamertemplate{itemize subsubsubsubsubitem}{\KIT@mark}
+\defbeamertemplatealias{itemize subsubsubitem}{triangle}{default}
+\defbeamertemplatealias{itemize subsubsubsubitem}{triangle}{default}
+\defbeamertemplatealias{itemize subsubsubsubsubitem}{triangle}{default}
+\defbeamertemplate{itemize subsubsubitem}{circle}{\tiny\raise0.5pt\hbox{\textbullet}}
+\defbeamertemplate{itemize subsubsubsubitem}{circle}{\tiny\raise0.5pt\hbox{\textbullet}}
+\defbeamertemplate{itemize subsubsubsubsubitem}{circle}{\tiny\raise0.5pt\hbox{\textbullet}}
+\defbeamertemplate{itemize subsubsubitem}{square}{\footnotesize\hbox{\vrule width 1ex height 1ex}}
+\defbeamertemplate{itemize subsubsubsubitem}{square}{\footnotesize\hbox{\vrule width 1ex height 1ex}}
+\defbeamertemplate{itemize subsubsubsubsubitem}{square}{\footnotesize\hbox{\vrule width 1ex height 1ex}}
+\defbeamertemplate{itemize subsubsubitem}{ball}{\raise0.2pt\beamer@usesphere{subsubsubitem projected}{smallsphere}}
+\defbeamertemplate{itemize subsubsubsubitem}{ball}{\raise0.2pt\beamer@usesphere{subsubsubsubitem projected}{smallsphere}}
+\defbeamertemplate{itemize subsubsubsubsubitem}{ball}{\raise0.2pt\beamer@usesphere{subsubsubsubsubitem projected}{smallsphere}}
+\def\usesubsubsubitemizeitemtemplate{\setbeamertemplate{itemize subsubsubitem}}
+\def\usesubsubsubsubitemizeitemtemplate{\setbeamertemplate{itemize subsubsubsubitem}}
+\def\usesubsubsubsubsubitemizeitemtemplate{\setbeamertemplate{itemize subsubsubsubsubitem}}
+\defbeamertemplate*{itemize/enumerate subsubsubbody begin}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubbody end}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubsubbody begin}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubsubbody end}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubsubsubbody begin}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubsubsubbody end}{default}{}
+\newcounter{enumv}
+\newcounter{enumvi}
+\renewcommand{\theenumiv}{\arabic{enumiv}}
+\renewcommand{\theenumv}{\arabic{enumv}}
+\renewcommand{\theenumvi}{\arabic{enumvi}}
+\newcommand{\insertsubsubsubenumlabel}{\theenumiv}
+\newcommand{\insertsubsubsubsubenumlabel}{\theenumv}
+\newcommand{\insertsubsubsubsubsubenumlabel}{\theenumvi}
+\def\enumerate{%
+  \ifnum\@enumdepth>\max@enumdepth\relax\@toodeep
+  \else%
+    \advance\@enumdepth\@ne%
+    \edef\@enumctr{enum\romannumeral\the\@enumdepth}%
+    \advance\@itemdepth\@ne%
+  \fi%
+  \beamer@computepref\@enumdepth% sets \beameritemnestingprefix
+  \edef\beamer@enumtempl{enumerate \beameritemnestingprefix item}%
+  \@ifnextchar[{\beamer@@enum@}{\beamer@enum@}}
+\def\beamer@enum@{%
+  \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+  \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+  \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+  \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+  \expandafter
+    \list
+      {\usebeamertemplate{\beamer@enumtempl}}
+      {\usecounter\@enumctr%
+        \def\makelabel##1{{\hss\llap{{%
+                \usebeamerfont*{enumerate \beameritemnestingprefix item}%
+                \usebeamercolor[fg]{enumerate \beameritemnestingprefix item}##1}}}}%
+       \expandafter\setlength{\labelsep}%
+   {\csname labelsep@enum\romannumeral\the\@itemdepth\endcsname}
+       \expandafter\setlength{\itemindent}%
+   {\csname enum@indent\romannumeral\the\@itemdepth\endcsname}
+      }%
+  \beamer@cramped%
+  \raggedright%
+  \beamer@firstlineitemizeunskip%
+}
+\def\beamer@computepref#1{%
+  \let\beameritemnestingprefix\@empty%
+  \ifcase#1\or\or\def\beameritemnestingprefix{sub}\or\def\beameritemnestingprefix{subsub}\or\def\beameritemnestingprefix{subsubsub}\or\def\beameritemnestingprefix{subsubsubsub}\or\def\beameritemnestingprefix{subsubsubsubsub}\or\@toodeep\fi%
+}
+\defbeamertemplateparent{enumerate items}[KIT]{enumerate item,enumerate subitem,enumerate subsubitem,enumerate subsubsubitem,enumerate subsubsubsubitem,enumerate mini}
+{}
+\defbeamertemplate*{enumerate subsubsubitem}{default}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel.\insertsubsubsubenumlabel}
+\defbeamertemplate*{enumerate subsubsubsubitem}{default}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel.\insertsubsubsubenumlabel.\insertsubsubsubsubenumlabel}
+\defbeamertemplate*{enumerate subsubsubsubsubitem}{default}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel.\insertsubsubsubenumlabel.\insertsubsubsubsubenumlabel.\insertsubsubsubsubsubenumlabel}
+\defbeamertemplate*{enumerate subsubsubitem}{ball}
+{
+  \begin{pgfpicture}{-1ex}{-0.55ex}{1ex}{1ex}
+    \usebeamercolor[fg]{subsubsubitem projected}
+    {\pgftransformscale{1.4}\pgftext{\normalsize\pgfuseshading{bigsphere}}}
+    \pgftext{%
+      \usebeamerfont*{subsubitem projected}%
+      \insertsubsubsubenumlabel}
+  \end{pgfpicture}%
+}
+\defbeamertemplate*{enumerate subsubsubsubitem}{ball}
+{
+  \begin{pgfpicture}{-1ex}{-0.55ex}{1ex}{1ex}
+    \usebeamercolor[fg]{subsubsubsubitem projected}
+    {\pgftransformscale{1.4}\pgftext{\normalsize\pgfuseshading{bigsphere}}}
+    \pgftext{%
+      \usebeamerfont*{subsubsubitem projected}%
+      \insertsubsubsubsubenumlabel}
+  \end{pgfpicture}%
+}
+\defbeamertemplate*{enumerate subsubsubsubsubitem}{ball}
+{
+  \begin{pgfpicture}{-1ex}{-0.55ex}{1ex}{1ex}
+    \usebeamercolor[fg]{subsubsubsubsubitem projected}
+    {\pgftransformscale{1.4}\pgftext{\normalsize\pgfuseshading{bigsphere}}}
+    \pgftext{%
+      \usebeamerfont*{subsubsubsubitem projected}%
+      \insertsubsubsubsubsubenumlabel}
+  \end{pgfpicture}%
+}
+\setbeamertemplate{title page}{%
+  \ifbeamer@centered
+%    \vspace*{-.351truemm}%
+    \setlength{\KIT@tlen}{-.351truemm}%
+  \else
+%    \vspace*{-2.36675truemm}%
+    \setlength{\KIT@tlen}{-2.36675truemm}%
+  \fi
+  \addtolength{\KIT@tlen}{-\KIT@ptop}%
+  \vspace*{\KIT@tlen}%
+% \hspace*{-10.002truemm}%
+  \begin{tikzpicture}
+%%% \useasboundingbox (7.6mm,-\headsep) rectangle (135.6mm,95.649mm-\headsep);
+    \useasboundingbox (7.175mm,0mm) rectangle (135.6mm,96mm);
+%%% \useasboundingbox (7.6mm,0mm) rectangle (135.6mm,95.649mm);
+%%  \useasboundingbox (0mm,0mm) rectangle (128mm,96mm);
+%>  \useasboundingbox (7.6mm,0mm) rectangle (135.6mm,95.649mm);
+    \fill[white] (0\K@mm,0\K@mm) rectangle (254\K@mm,93.0\K@mm);
+    \pgftext[at=\pgfpoint{3\K@mm}{15\K@mm},left,bottom]
+      {\usebox{\KIT@titimg}}
+    % Line above the title image:
+    \fill[white] (3\K@mm,92.5\K@mm) rectangle (251\K@mm,93.0\K@mm);
+    \fill[KITblack50] (3\K@mm,93.0\K@mm) rectangle (251\K@mm,105.0\K@mm);
+    \pgftext[at=\pgfpoint{14.5\K@mm}{98\K@mm},left]									% DS_CHANGE: x=14.5, y=98 statt x=19,y=99
+      {\textcolor{white}{\fontsize{14\K@pt}{16\K@pt}\selectfont						% DS_CHANGE: Font 14,16 statt 10,12
+        \insertinstitute}}
+%    \pgftext[at=\pgfpoint{19\K@mm}{99\K@mm},left]
+%      {\textcolor{white}{\fontsize{10\K@pt}{12\K@pt}\selectfont
+%        \insertinstitute}}        
+    \fill[white] (0\K@mm,105.0\K@mm) rectangle (254\K@mm,190\K@mm);
+    \KIT@MFrame[\KIT@MFbadd]
+    \pgftext[at=\pgfpoint{14.5\K@mm}{178.5\K@mm},left,top]							% DS_CHANGE: x = 14.5mm statt 8mm, y = 178.5mm statt 182mm
+      {\pgfimage[interpolate=true,width=45\K@mm]{\KIT@logo}}						% DS_CHANGE: width = 45 statt 30
+    \pgftext[at=\pgfpoint{14.5\K@mm}{133\K@mm},left,base]							% DS_CHANGE: x = 14.5mm statt 19mm
+      {\parbox[b]{226\K@mm}{%														% DS_CHANGE: parbox breite 230mm statt 226mm
+ \raggedright\fontsize{32\K@pt}{36\K@pt}\bfseries\inserttitle}}
+    \pgftext[at=\pgfpoint{14.5\K@mm}{127\K@mm},left,top]							% DS_CHANGE: x = 14.5mm statt 19mm
+      {\parbox[t]{230\K@mm}{%														% DS_CHANGE: parbox breite 230mm statt 120mm
+     \raggedright\fontsize{16\K@pt}{18\K@pt}\selectfont\insertsubtitle}}
+  	 \pgftext[at=\pgfpoint{12\K@mm}{10\K@mm},top,left]								% DS_CHANGE: neue Fußzeile dazu (Orginal darunter auskommentiert)
+  	 {\parbox[t]{100\K@mm}{\fontsize{8\K@pt}{10\K@pt}\selectfont \KIT@texta}}
+	 \pgftext[at=\pgfpoint{222\K@mm}{7\K@mm},top,left]
+     {\fontsize{14\K@pt}{16\K@pt}\selectfont \bfseries\textcolor{white}{\KIT@www}}
+%    \pgftext[at=\pgfpoint{6\K@mm}{7.6\K@mm},left,base]{%
+%      \fontsize{8\K@pt}{9.5\K@pt}\selectfont\KIT@text}
+%    \pgftext[at=\pgfpoint{251\K@mm}{13\K@mm},right,top]
+%      {\pgfimage[interpolate=true,width=44.6\K@mm]{\UKA@logo}}
+%    \pgftext[at=\pgfpoint{197.4\K@mm}{13.3\K@mm},right,top]
+%      {\pgfimage[interpolate=true,width=42\K@mm]{\FZK@logo}}      
+\ifKIT@grid
+    \draw[step=1\K@mm,style=help lines]
+      (0\K@mm,0\K@mm) grid (254\K@mm,190\K@mm);
+    \draw[step=10\K@mm,red,very thin]
+      (0\K@mm,0\K@mm) grid (254\K@mm,190\K@mm);
+    \draw[blue,thin]
+      (0\K@mm,0\K@mm) rectangle (254\K@mm,190\K@mm);
+\fi
+  \end{tikzpicture}%
+}
+\mode
+<all>
+\endinput
+%%
+%% End of file `beamerinnerthemeKIT.sty'.

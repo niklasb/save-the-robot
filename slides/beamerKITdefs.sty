@@ -1,0 +1,27 @@
+% Copyright 2009 by Dennis Schieferdecker <dennis.schieferdecker@kit.edu>
+
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{beamerKITdefs}
+\mode<presentation>
+
+
+% new highlight colors
+\definecolor{KITbrightred}{RGB}    { 255,   5, 140} %{ 154,   0,  82 }
+\definecolor{KITbrightblue}{RGB}   { 0,    79, 240} %{ 70,  100, 170 }
+\definecolor{KITbrightgreen}{RGB}  { 0,   210, 180} %{ 0,   150, 130 }
+
+% highlighting commands
+\setbeamercolor{alerted text}{fg=KITbrightred}
+
+\newcommand<>{\galert}[1]{{\color#2{KITbrightgreen}#1}}
+\newcommand<>{\balert}[1]{{\color#2{KITbrightblue}#1}}
+\newcommand<>{\ralert}[1]{{\color#2{KITbrightred}#1}}
+
+\newcommand<>{\calert}[2][alert.fg]{{\color#3{#1}#2}}										% colored alert: \calert<slide>[color]{text}
+\newcommand<>{\citem}[3][]{{\only#4{\setbeamercolor{structure}{fg=#2}}%						% colored item : \citem<slide>[itemize symbol]{color}{text}
+							\@ifempty{#1}{\item}{\item[#1]}\calert#4[#2]{#3}}}
+
+% short command for improved column presentation with big columns
+\newenvironment<>{KITcolumns}{\begin{columns}#1[onlytextwidth]}{\end{columns}}
+
+\mode<all>

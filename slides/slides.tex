@@ -1,0 +1,128 @@
+\documentclass[ngerman,hyperref={pdfpagelabels=true}]{beamer}
+\usepackage{etex}
+
+% -----------------------------------------------------------------------------
+
+\graphicspath{{img/}}
+
+% -----------------------------------------------------------------------------
+
+\usetheme{KIT}
+
+%\setbeamercovered{transparent}
+\setbeamertemplate{enumerate items}[ball]
+
+\usepackage{ulem}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[TS1,T1]{fontenc}
+\usepackage{array}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{beamerKITdefs}
+%\usepackage{graphicx}
+%\usepackage{tikz}
+\usepackage[loadonly]{enumitem}
+\usepackage{hyperref}
+\usepackage{etoolbox}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{listings}
+\usepackage{pgffor}
+
+\lstset{frame=tb,
+        basicstyle=\scriptsize, %\ttfamily,
+        numbers=left,
+        numberstyle=\scriptsize,
+        numbersep=5pt,
+        tabsize=4,
+        captionpos=t,
+        language=Java,
+        breaklines=true,
+        breakatwhitespace=false,
+        escapeinside={\%*}{*)},
+        columns=flexible,
+        emph={},
+        emphstyle={\bfseries}%
+        inputencoding={utf-8}%
+        escapeinside=``%
+        literate=
+          {Ö}{{\"O}}1
+          {Ä}{{\"A}}1
+          {Ü}{{\"U}}1
+          {ß}{{\ss}}1
+          {ü}{{\"u}}1
+          {ä}{{\"a}}1
+          {ö}{{\"o}}1
+          {~}{{\textasciitilde}}1
+}
+
+\newcommand{\mypath}{\rightsquigarrow}
+
+\usetikzlibrary{trees,shapes}
+
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>}
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>}
+
+\makeatletter
+\patchcmd{\@maketitle}{\LARGE \@title}{\fontsize{16}{19.2}\selectfont\@title}{}{}
+\makeatother
+
+
+\title{Save the Robot -- Computational Geometry}
+\subtitle{
+February 3rd, 2016 \\ Niklas Baumstark, Samuel Groß
+}
+
+
+\author{Niklas Baumstark, Samuel Groß}
+\institute{Institute of Theoretical Informatics}
+
+\TitleImage[height=\titleimageht]{graphics/title}
+
+\KITinstitute{Institute of Theoretical Informatics}
+\KITfaculty{Prof. Dr. Dorothea Wagner}
+%\KITfaculty{CMU Department of Computer Science}
+
+\lstset{
+basicstyle=\ttfamily\normalsize
+}
+
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+\newcommand\T{\mathcal{T}}
+
+%\useinnertheme[shadow]{rounded}
+\setbeamercolor{block title}{bg=KITblue,fg=white}
+\setbeamercolor{block body}{bg=KITblue30,fg=black}
+
+\newenvironment{mytheorem}[1]{%
+\setbeamercolor{block body}{bg=KITgreen30,fg=black}
+\setbeamercolor{block title}{bg=KITgreen,fg=white}
+\begin{block}{Theorem: #1}}{\end{block}}
+
+\newenvironment{mylemma}[1]{%
+\setbeamercolor{block body}{bg=KITgreen30,fg=black}
+\setbeamercolor{block title}{bg=KITgreen,fg=white}
+\begin{block}{Lemma: #1}}{\end{block}}
+
+\newenvironment{mydef}[1]{%
+\begin{block}{#1}}{\end{block}}
+
+\begin{document}
+
+\setlength\textheight{7cm} %required for correct vertical alignment, if [t] is not used as documentclass parameter
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\input{niklas}
+\input{samuel}
+
+%\begin{frame}[t,allowframebreaks]{References}
+%\bibliographystyle{apalike}
+%\bibliography{references}
+%\end{frame}
+
+\end{document}
